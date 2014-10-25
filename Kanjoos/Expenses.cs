@@ -20,10 +20,10 @@ namespace Kanjoos
         public double amount { get; set; }
         public string detail { get; set; }
 
-        public override string ToString()
-        {
-            return category + ": " + amount.ToString();
-        }
+        //public override string ToString()
+        //{
+        //    return category + ": " + amount.ToString();
+        //}
     }
 
 }

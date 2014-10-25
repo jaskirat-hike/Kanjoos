@@ -40,13 +40,71 @@ namespace Kanjoos
             
             // create new table if it doesn't exist
             dbConn.CreateTable<Expenses>();
+            dbConn.CreateTable<Balance>();
 
-            // retrieve expenses from db
-            List<Expenses> expenses = dbConn.Table<Expenses>().ToList<Expenses>();
 
-            expenditures.Items.Clear();
-            foreach (var t in expenses)
-                expenditures.Items.Add(t);
+            // retrieve records for current month
+            int current_month = DateTime.Now.Month;
+
+            List<Expenses> records = new List<Expenses>();
+            records = RetrieveCurrentRecords(current_month);
+
+            //List<Expenses> records = RetrieveCurrentRecords(int current_month);
+
+            // construct various pages
+            make_overview(records);
+            make_expenditures(records);
+            //make_breakup(records);
+
+            //List<Expenses> expenses = dbConn.Table<Expenses>().ToList<Expenses>();
+
+            //expenditures.Items.Clear();
+            //foreach (Expenses ex in expenses)
+            //{
+            //}
+        }
+
+        private List<Expenses> RetrieveCurrentRecords(int month)
+        {
+            SQLiteCommand sqlCommand = new SQLiteCommand(dbConn);
+            sqlCommand.CommandText = "SELECT * FROM expenses WHERE month = " + month.ToString();
+
+            // retrieve records
+            List<Expenses> records = sqlCommand.ExecuteQuery<Expenses>();
+            return records;
+        }
+
+        // construct and update the overview page
+        private void make_overview(List<Expenses> records)
+        {
+            // calculate total expenditure of current month
+            double expenditure = 0.0;
+
+            foreach (Expenses ex in records)
+                expenditure += ex.amount;
+
+            tb_expenditure.Text = "Expenditure: " + expenditure.ToString();
+
+        }
+
+        // construct and update the expenditures page
+        private void make_expenditures(List<Expenses> records)
+        {
+            lls_expenses.ItemsSource = records;
+        }
+
+        // overloaded method for generating expenditures
+        private void make_expenditures(int month)
+        {
+            // retrieve expenses of chosen month from DB
+            List<Expenses> records = RetrieveCurrentRecords(month);
+            make_expenditures(records);
+        }
+        
+        // construct and update the breakup
+        private void make_breakup(List<Expenses> records)
+        {
+            throw new NotImplementedException();
         }
 
         protected override void OnNavigatedFrom(NavigationEventArgs e)

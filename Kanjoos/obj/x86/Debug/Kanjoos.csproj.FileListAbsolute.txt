@@ -21,3 +21,4 @@ E:\WP8 Apps\Kanjoos\Kanjoos\obj\x86\Debug\Kanjoos.csproj.GenerateResource.Cache
 E:\WP8 Apps\Kanjoos\Kanjoos\obj\x86\Debug\Kanjoos.dll
 E:\WP8 Apps\Kanjoos\Kanjoos\obj\x86\Debug\Kanjoos.pdb
 E:\WP8 Apps\Kanjoos\Kanjoos\obj\x86\Debug\XapCacheFile.xml
+E:\WP8 Apps\Kanjoos\Kanjoos\obj\x86\Debug\Kanjoos.csprojResolveAssemblyReference.cache

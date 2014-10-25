@@ -42,13 +42,13 @@
             <phone:PivotItem Header="overview">
                 <!--Double line list with text wrapping-->
                 <StackPanel>
-                    <ListBox x:Name="cash_in_hand"
-                             FontSize="40" />
+                    <TextBlock x:Name="tb_balance"
+                               FontSize="40" />
                     
-                    <ListBox x:Name="expenditures"
-                             FontSize="20" />
+                    <TextBlock x:Name="tb_expenditure"
+                               FontSize="20" />
                     
-                    <Button x:Name="add_trans"
+                    <Button x:Name="btn_add_trans"
                             Height="80"
                             Width="250"
                             Content="Add Transaction"
@@ -59,14 +59,21 @@
             </phone:PivotItem>
 
             <!--Pivot item two-->
-            <phone:PivotItem Header="second">
+            <phone:PivotItem Header="expenses">
                 <!--Double line list no text wrapping-->
-                <phone:LongListSelector Margin="0,0,-12,0" ItemsSource="{Binding Items}">
+                <phone:LongListSelector x:Name="lls_expenses" 
+                                        Margin="0,0,-12,0" >
                     <phone:LongListSelector.ItemTemplate>
                             <DataTemplate>
                                 <StackPanel Margin="0,0,0,17">
-                                    <TextBlock Text="{Binding LineOne}" TextWrapping="NoWrap" Margin="12,0,0,0" Style="{StaticResource PhoneTextExtraLargeStyle}"/>
-                                    <TextBlock Text="{Binding LineThree}" TextWrapping="NoWrap" Margin="12,-6,0,0" Style="{StaticResource PhoneTextSubtleStyle}"/>
+                                    <TextBlock Text="{Binding category}" 
+                                               TextWrapping="NoWrap" 
+                                               Margin="12,0,0,0" 
+                                               Style="{StaticResource PhoneTextExtraLargeStyle}"/>
+                                    <TextBlock Text="{Binding detail}" 
+                                               TextWrapping="NoWrap" 
+                                               Margin="12,-6,0,0" 
+                                               Style="{StaticResource PhoneTextSubtleStyle}"/>
                                 </StackPanel>
                             </DataTemplate>
                     </phone:LongListSelector.ItemTemplate>
