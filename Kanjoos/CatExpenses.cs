@@ -6,10 +6,10 @@ using System.Threading.Tasks;
 
 namespace Kanjoos
 {
-    // table for Balance
-    public sealed class Balance
+    public class CatExpenses
     {
-        public int id { get; set; }
+        public int percent { get; set; }
+        public string category { get; set; }
         public double amount { get; set; }
     }
 }

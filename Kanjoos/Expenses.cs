@@ -24,6 +24,25 @@ namespace Kanjoos
         //{
         //    return category + ": " + amount.ToString();
         //}
+
+        public static string GetMonthName(int month)
+        {
+            Dictionary<int, string> month_names = new Dictionary<int, string>();
+            month_names.Add(1, "january");
+            month_names.Add(2, "february");
+            month_names.Add(3, "march");
+            month_names.Add(4, "april");
+            month_names.Add(5, "may");
+            month_names.Add(6, "june");
+            month_names.Add(7, "july");
+            month_names.Add(8, "august");
+            month_names.Add(9, "september");
+            month_names.Add(10, "october");
+            month_names.Add(11, "november");
+            month_names.Add(12, "december");
+
+            return month_names[month];
+        }
     }
 
 }

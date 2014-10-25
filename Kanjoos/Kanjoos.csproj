@@ -94,6 +94,7 @@
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
     </Compile>
+    <Compile Include="CatExpenses.cs" />
     <Compile Include="Expenses.cs" />
     <Compile Include="Balance.cs" />
     <Compile Include="LocalizedStrings.cs" />

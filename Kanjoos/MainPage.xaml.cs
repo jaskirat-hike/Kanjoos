@@ -52,7 +52,7 @@ namespace Kanjoos
             //List<Expenses> records = RetrieveCurrentRecords(int current_month);
 
             // construct various pages
-            make_overview(records);
+            make_overview(records, current_month);
             make_expenditures(records);
             //make_breakup(records);
 
@@ -75,17 +75,70 @@ namespace Kanjoos
         }
 
         // construct and update the overview page
-        private void make_overview(List<Expenses> records)
+        private void make_overview(List<Expenses> records, int current_month)
         {
-            // calculate total expenditure of current month
-            double expenditure = 0.0;
+            // calculate balance
+            double cash_in_hand = 0.0;
+            SQLiteCommand sqlCommand = new SQLiteCommand(dbConn);
+            sqlCommand.CommandText = "SELECT * FROM balance WHERE id = 1";
+            List<Balance> balance = sqlCommand.ExecuteQuery<Balance>();
 
+            if (balance.Count == 0)
+            {
+                sqlCommand.CommandText = "INSERT INTO balance (id, amount) VALUES (1, 0.0)";
+                sqlCommand.ExecuteQuery<Balance>();
+            }
+            else
+                cash_in_hand = balance[0].amount;
+
+            tb_balance.Text = cash_in_hand.ToString();
+
+
+            // calculate expenditures
+            double total_expenditure = 0.0;
+            string month = Expenses.GetMonthName(current_month);
+
+            // calc total expenditure of current month
             foreach (Expenses ex in records)
-                expenditure += ex.amount;
+                total_expenditure += ex.amount;
 
-            tb_expenditure.Text = "Expenditure: " + expenditure.ToString();
+            Dictionary<string, double> cat_expenses = new Dictionary<string, double>();
+            cat_expenses = categorise_records(records);
+
+            var sortedDict = from entry in cat_expenses orderby entry.Value descending select entry;
+
+            List<CatExpenses> percent_expenses = new List<CatExpenses>();
+
+            foreach (var rec in sortedDict)
+            {
+                CatExpenses new_item = new CatExpenses();
+                new_item.category = rec.Key;
+                new_item.amount = rec.Value;
+                new_item.percent = Convert.ToInt32(((rec.Value / total_expenditure) * 100));
+                percent_expenses.Add(new_item);
+            }
+
+            lls_top_expenses.ItemsSource = percent_expenses;
+            tb_expenditure.Text = "Expenditure (" + month.ToUpper() + "): " + total_expenditure.ToString();
 
         }
+
+        // categorise records
+        private Dictionary<string, double> categorise_records(List<Expenses> records)
+        {
+            Dictionary<string, double> cat_expenses = new Dictionary<string, double>();
+
+            foreach (Expenses ex in records)
+            {
+                if (cat_expenses.ContainsKey(ex.category))
+                    cat_expenses[ex.category] += ex.amount;
+                else
+                    cat_expenses.Add(ex.category, ex.amount);
+            }
+
+            return cat_expenses;
+        }
+
 
         // construct and update the expenditures page
         private void make_expenditures(List<Expenses> records)

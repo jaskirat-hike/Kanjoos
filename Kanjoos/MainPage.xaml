@@ -7,7 +7,6 @@
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d"
-    d:DataContext="{d:DesignData SampleData/MainViewModelSampleData.xaml}"
     FontFamily="{StaticResource PhoneFontFamilyNormal}"
     FontSize="{StaticResource PhoneFontSizeNormal}"
     Foreground="{StaticResource PhoneForegroundBrush}"
@@ -38,6 +37,7 @@
 
         <!--Pivot Control-->
         <phone:Pivot Title="MY APPLICATION">
+            
             <!--Pivot item one-->
             <phone:PivotItem Header="overview">
                 <!--Double line list with text wrapping-->
@@ -53,8 +53,23 @@
                             Width="250"
                             Content="Add Transaction"
                             Click="add_trans_Click"/>
+
+                    <phone:LongListSelector x:Name="lls_top_expenses" >
+                        <phone:LongListSelector.ItemTemplate>
+                            <DataTemplate>
+                                <StackPanel>
+                                    <TextBlock Text="{Binding percent}" 
+                                               TextWrapping="NoWrap" />
+                                    <TextBlock Text="{Binding category}" 
+                                               TextWrapping="NoWrap" />
+                                    <TextBlock Text="{Binding amount}" 
+                                               TextWrapping="NoWrap" />
+                                </StackPanel>
+                            </DataTemplate>
+                        </phone:LongListSelector.ItemTemplate>
+                    </phone:LongListSelector>
+                    
                 </StackPanel>
-                
                 
             </phone:PivotItem>
 

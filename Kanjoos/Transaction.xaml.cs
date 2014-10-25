@@ -63,6 +63,9 @@ namespace Kanjoos
             // insert new record in table
             dbConn.Insert(new_expense);
 
+            // update the balance
+            update_balance(-1 * amount);
+
             // navigate back to main page
             Uri mainPage = new Uri("/MainPage.xaml", UriKind.Relative);
             NavigationService.Navigate(mainPage);
@@ -71,12 +74,25 @@ namespace Kanjoos
         private void add_income_Click(object sender, RoutedEventArgs e)
         {
             // extract value for income
-            double amount = Convert.ToDouble(income_amount.Text);
+            double income = Convert.ToDouble(income_amount.Text);
+            update_balance(income);
+        }
 
+        private void update_balance(double income)
+        {
+            
+            double new_balance = 0.0;
+            
             // retrieve previous income
             SQLiteCommand sqlCommand = new SQLiteCommand(dbConn);
-            sqlCommand.CommandText = "SELECT amount FROM balance";
+            sqlCommand.CommandText = "SELECT * FROM balance where ID = 1";
             List<Balance> balance = sqlCommand.ExecuteQuery<Balance>();
+
+            new_balance = income + balance[0].amount;
+
+            // update the balance in DB
+            sqlCommand.CommandText = "UPDATE balance SET amount = " + new_balance.ToString() + " WHERE id = 1";
+            sqlCommand.ExecuteQuery<Balance>();
 
             // navigate back to main page
             Uri mainPage = new Uri("/MainPage.xaml", UriKind.Relative);
