@@ -7,7 +7,8 @@ Details
 -------
 Written in C# and XAML  
 Uses SQLite  
-Created for PEC hack prelims
+Created for PEC hack prelims  
+Larger Screenshots [here](http://imgur.com/a/uueHB).
 
 Functionality
 -------------
