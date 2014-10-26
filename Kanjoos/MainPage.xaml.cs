@@ -123,6 +123,7 @@ namespace Kanjoos
 
             tb_expenditure.Text = "₹ " + total_expenditure.ToString();
             tb_current_month.Text = month.ToUpper();
+            tb_month.Text = month.ToUpper();
         }
 
         // categorise records

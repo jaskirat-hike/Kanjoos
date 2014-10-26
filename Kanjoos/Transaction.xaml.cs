@@ -53,11 +53,13 @@ namespace Kanjoos
             // create a new expense record
             Expenses new_expense = new Expenses()
             {
-                date = DateTime.Now,
+                datetime = DateTime.Now,
+                day = DateTime.Now.Day,
                 month = DateTime.Now.Month,
                 category = category,
                 detail = detail,
-                amount = amount
+                amount = amount,
+                color = Expenses.GetRandomColor()
             };
 
             // insert new record in table

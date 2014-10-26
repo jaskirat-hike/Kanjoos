@@ -50,6 +50,8 @@ namespace Kanjoos
             // Phone-specific initialization
             InitializePhoneApplication();
 
+            ThemeManager.ToLightTheme();
+
             // Language display initialization
             InitializeLanguage();
 

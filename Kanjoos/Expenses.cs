@@ -14,7 +14,9 @@ namespace Kanjoos
 
         [PrimaryKey, AutoIncrement]
         public int id { get; set; }
-        public DateTime date { get; set; }
+        public string color { get; set; }
+        public DateTime datetime { get; set; }
+        public int day { get; set; }
         public int month { get; set; }
         public string category { get; set; }
         public double amount { get; set; }
@@ -24,6 +26,25 @@ namespace Kanjoos
         //{
         //    return category + ": " + amount.ToString();
         //}
+
+        public static string GetRandomColor()
+        {
+            List<string> colors = new List<string>();
+            colors.Add("Blue");
+            colors.Add("BlueViolet");
+            colors.Add("Brown");
+            colors.Add("CadetBlue");
+            colors.Add("Coral");
+            colors.Add("Crimson");
+
+            int color_count = colors.Count;
+            
+            // get random number between 0 and color_count - 1
+            Random rnd = new Random();
+            int color_index = rnd.Next(0, color_count - 1);
+
+            return colors[color_index];
+        }
 
         public static string GetMonthName(int month)
         {

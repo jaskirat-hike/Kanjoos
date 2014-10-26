@@ -19,44 +19,110 @@
         <phone:Pivot Title="ADD TRANSACTION">
             <!--Pivot item one-->
             <phone:PivotItem Header="expense">
-                <StackPanel>
-                    <TextBox x:Name="expense_amount"
-                             Height="80"
-                             Width="200" />
+                
+                <Grid Margin="0,2,0,-2">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                    </Grid.RowDefinitions>
                     
-                    <TextBox x:Name="expense_category"
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+
+                    <Grid Grid.Row="0" Grid.Column="0">
+                        <TextBlock Text="Amount"
+                                   HorizontalAlignment="Right"
+                                   VerticalAlignment="Center"
+                                   FontSize="30"/>
+                    </Grid>
+                    <Grid Grid.Row="0" Grid.Column="1">
+                        <TextBox x:Name="expense_amount"
+                                 HorizontalAlignment="Left"
+                                 VerticalAlignment="Center"
+                                 Height="70"
+                                 Width="200" />
+                    </Grid>
+                    
+                    <Grid Grid.Row="1" Grid.Column="0">
+                        <TextBlock Text="Category"
+                                   HorizontalAlignment="Right"
+                                   VerticalAlignment="Center"
+                                   FontSize="30"/>
+                    </Grid>
+                    
+                    <Grid Grid.Row="1" Grid.Column="1">
+                        <TextBox x:Name="expense_category"
+                             HorizontalAlignment="Left"
+                             VerticalAlignment="Center"
                              Height="70"
-                             Width="200"
-                             Text="Food"/>
+                             Width="200"/>
+                    </Grid>
+
+                    <Grid Grid.Row="2" Grid.Column="0">
+                        <TextBlock Text="Detail"
+                                   HorizontalAlignment="Right"
+                                   VerticalAlignment="Center"
+                                   FontSize="30"/>
+                    </Grid>
+
+                    <Grid Grid.Row="2" Grid.Column="1">
+                        <TextBox x:Name="expense_detail"
+                                 HorizontalAlignment="Left"
+                                 VerticalAlignment="Center"
+                                 Height="70"
+                                 Width="200" />
+                    </Grid>
                     
-                    <TextBox x:Name="expense_detail"
-                             Height="70"
-                             Width="300"
-                             Text="Masala Dosa"/>
-                    
-                    <Button x:Name="add_expense"
-                            Height="80"
-                            Width="100"
-                            Content="add"
-                            Click="add_expense_Click"/>
-                    
-                </StackPanel>
+                    <Grid Grid.Row="3" Grid.ColumnSpan="2">
+                        <Button x:Name="add_expense"
+                                Height="70"
+                                Width="300"
+                                Content="add"
+                                Click="add_expense_Click"/>
+                    </Grid>
+                </Grid>
             </phone:PivotItem>
 
             <!--Pivot item two-->
             <phone:PivotItem Header="income">
-                <StackPanel>
-                    <TextBox x:Name="income_amount"
-                             Height="80"
-                             Width="200" />
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                    </Grid.RowDefinitions>
                     
-                    <Button x:Name="add_income"
-                            Height="80"
-                            Width="100"
-                            Content="add"
-                            Click="add_income_Click"/>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+
+                    <Grid Grid.Row="0" Grid.Column="0">
+                        <TextBlock HorizontalAlignment="Right"
+                                   VerticalAlignment="Center"
+                                   FontSize="30"
+                                   Text="Income"/>
+                    </Grid>
                     
-                </StackPanel>
+                    <Grid Grid.Row="0" Grid.Column="1">
+                        <TextBox x:Name="income_amount"
+                                 HorizontalAlignment="Left"
+                                 VerticalAlignment="Center"
+                                 Height="70"
+                                 Width="200" />
+                    </Grid>
+                    
+                    <Grid Grid.Row="1" Grid.ColumnSpan="2">
+                        <Button x:Name="add_income"
+                                Height="70"
+                                Width="200"
+                                Content="add"
+                                Click="add_income_Click"/>
+                    </Grid>
+                </Grid>
             </phone:PivotItem>
         </phone:Pivot>
     </Grid>

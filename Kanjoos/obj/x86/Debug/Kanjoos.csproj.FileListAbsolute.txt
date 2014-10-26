@@ -53,4 +53,5 @@ E:\WP8 Apps\Kanjoos\Kanjoos\Bin\x86\Debug\ko\System.Windows.Interactivity.resour
 E:\WP8 Apps\Kanjoos\Kanjoos\Bin\x86\Debug\ru\System.Windows.Interactivity.resources.dll
 E:\WP8 Apps\Kanjoos\Kanjoos\Bin\x86\Debug\zh-Hans\System.Windows.Interactivity.resources.dll
 E:\WP8 Apps\Kanjoos\Kanjoos\Bin\x86\Debug\zh-Hant\System.Windows.Interactivity.resources.dll
-E:\WP8 Apps\Kanjoos\Kanjoos\obj\x86\Debug\Kanjoos.csprojResolveAssemblyReference.cache
+E:\WP8 Apps\Kanjoos\Kanjoos\Bin\x86\Debug\JeffWilcox.PhoneThemeManager.dll
+E:\WP8 Apps\Kanjoos\Kanjoos\Bin\x86\Debug\JeffWilcox.PhoneThemeManager.pdb
