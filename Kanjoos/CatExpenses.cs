@@ -8,7 +8,7 @@ namespace Kanjoos
 {
     public class CatExpenses
     {
-        public float percent { get; set; }
+        public int percent { get; set; }
         public string color { get; set; }
         public string category { get; set; }
         public double amount { get; set; }

@@ -1,11 +1,11 @@
-﻿<xapCache source="E:\WP8 Apps\Kanjoos\Kanjoos\Bin\x86\Debug\Kanjoos_Debug_x86.xap" wasSigned="False" wasTritonized="False" certificateThumbprint="" TimeStampUrl="" signKeyFile="" signKeyPassword="" lastWriteTime="10/26/2014 16 36 02">
-  <file source="E:\WP8 Apps\Kanjoos\Kanjoos\obj\x86\Debug\Kanjoos.dll" archivePath="Kanjoos.dll" lastWriteTime="10/26/2014 16 36 00" />
+﻿<xapCache source="E:\WP8 Apps\Kanjoos\Kanjoos\Bin\x86\Debug\Kanjoos_Debug_x86.xap" wasSigned="False" wasTritonized="False" certificateThumbprint="" TimeStampUrl="" signKeyFile="" signKeyPassword="" lastWriteTime="10/26/2014 19 57 50">
+  <file source="E:\WP8 Apps\Kanjoos\Kanjoos\obj\x86\Debug\Kanjoos.dll" archivePath="Kanjoos.dll" lastWriteTime="10/26/2014 19 57 47" />
   <file source="E:\WP8 Apps\Kanjoos\Kanjoos\Assets\AlignmentGrid.png" archivePath="Assets\AlignmentGrid.png" lastWriteTime="10/25/2014 22 54 46" />
   <file source="E:\WP8 Apps\Kanjoos\Kanjoos\Assets\Tiles\FlipCycleTileLarge.png" archivePath="Assets\Tiles\FlipCycleTileLarge.png" lastWriteTime="10/25/2014 22 54 46" />
   <file source="E:\WP8 Apps\Kanjoos\Kanjoos\Assets\Tiles\FlipCycleTileSmall.png" archivePath="Assets\Tiles\FlipCycleTileSmall.png" lastWriteTime="10/25/2014 22 54 46" />
   <file source="E:\WP8 Apps\Kanjoos\Kanjoos\Assets\Tiles\IconicTileMediumLarge.png" archivePath="Assets\Tiles\IconicTileMediumLarge.png" lastWriteTime="10/25/2014 22 54 46" />
   <file source="E:\WP8 Apps\Kanjoos\Kanjoos\Assets\Tiles\IconicTileSmall.png" archivePath="Assets\Tiles\IconicTileSmall.png" lastWriteTime="10/25/2014 22 54 46" />
-  <file source="E:\WP8 Apps\Kanjoos\Kanjoos\Bin\x86\Debug\AppManifest.xaml" archivePath="AppManifest.xaml" lastWriteTime="10/26/2014 14 49 04" />
+  <file source="E:\WP8 Apps\Kanjoos\Kanjoos\Bin\x86\Debug\AppManifest.xaml" archivePath="AppManifest.xaml" lastWriteTime="10/26/2014 18 46 04" />
   <file source="E:\WP8 Apps\Kanjoos\Kanjoos\Bin\x86\Debug\Assets\ApplicationIcon.png" archivePath="Assets\ApplicationIcon.png" lastWriteTime="10/25/2014 22 54 46" />
   <file source="E:\WP8 Apps\Kanjoos\Kanjoos\Bin\x86\Debug\Assets\Tiles\FlipCycleTileMedium.png" archivePath="Assets\Tiles\FlipCycleTileMedium.png" lastWriteTime="10/25/2014 22 54 46" />
   <file source="C:\Program Files (x86)\Microsoft SDKs\Windows Phone\v8.0\Libraries\Microsoft.Phone.Controls.dll" archivePath="Microsoft.Phone.Controls.dll" lastWriteTime="3/3/2013 19 40 38" />
@@ -23,5 +23,5 @@
   <file source="F:\Telerik\UI for Windows Phone 8 Q1 2014\Binaries\WindowsPhone\Telerik.Windows.Controls.Primitives.xml" archivePath="Telerik.Windows.Controls.Primitives.xml" lastWriteTime="2/26/2014 11 13 46" />
   <file source="F:\Telerik\UI for Windows Phone 8 Q1 2014\Binaries\WindowsPhone\Telerik.Windows.Core.xml" archivePath="Telerik.Windows.Core.xml" lastWriteTime="2/26/2014 11 13 42" />
   <file source="C:\Program Files (x86)\Microsoft SDKs\Windows Phone\v8.0\ExtensionSDKs\SQLite.WP80\3.8.7\Redist\Debug\x86\sqlite3.dll" archivePath="sqlite3.dll" lastWriteTime="10/21/2014 15 43 36" />
-  <file source="E:\WP8 Apps\Kanjoos\Kanjoos\Bin\x86\Debug\Properties\WMAppManifest.xml" archivePath="WMAppManifest.xml" lastWriteTime="10/26/2014 1 38 40" />
+  <file source="E:\WP8 Apps\Kanjoos\Kanjoos\Bin\x86\Debug\Properties\WMAppManifest.xml" archivePath="WMAppManifest.xml" lastWriteTime="10/26/2014 18 46 05" />
 </xapCache>

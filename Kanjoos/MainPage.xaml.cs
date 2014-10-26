@@ -27,9 +27,6 @@ namespace Kanjoos
         public MainPage()
         {
             InitializeComponent();
-
-            // Sample code to localize the ApplicationBar
-            BuildLocalizedApplicationBar();
         }
 
 
@@ -83,7 +80,7 @@ namespace Kanjoos
             else
                 cash_in_hand = balance[0].amount;
 
-            tb_balance.Text = cash_in_hand.ToString();
+            tb_balance.Text = "₹ " + cash_in_hand.ToString();
 
 
             // calculate expenditures
@@ -100,6 +97,8 @@ namespace Kanjoos
             var sortedDict = from entry in cat_expenses orderby entry.Value descending select entry;
 
             List<CatExpenses> percent_expenses = new List<CatExpenses>();
+            List<CatExpenses> top_expenses = new List<CatExpenses>();
+
             int item_index = 0;
 
             foreach (var rec in sortedDict)
@@ -108,18 +107,22 @@ namespace Kanjoos
                 new_item.category = rec.Key;
                 new_item.amount = rec.Value;
                 new_item.color = CatExpenses.GetColor(item_index); 
-                new_item.percent = (float)((rec.Value / total_expenditure) * 100);
+                new_item.percent = (int)((rec.Value / total_expenditure) * 100);
                 percent_expenses.Add(new_item);
+
+                if (top_expenses.Count < 2)
+                    top_expenses.Add(new_item);
                 item_index += 1;
             }
 
-            lls_top_expenses.ItemsSource = percent_expenses;
+            lls_top_expenses.ItemsSource = top_expenses;
+            
             
             // make pie chart from percent expenses
             make_breakup(percent_expenses);
 
-            tb_expenditure.Text = "Expenditure (" + month.ToUpper() + "): " + total_expenditure.ToString();
-
+            tb_expenditure.Text = "₹ " + total_expenditure.ToString();
+            tb_current_month.Text = month.ToUpper();
         }
 
         // categorise records
@@ -158,7 +161,7 @@ namespace Kanjoos
         {
             int item_count = records.Count;
             int item = 0;
-            float[] breakup_percentages = new float[item_count];
+            int[] breakup_percentages = new int[item_count];
 
             foreach (var rec in records)
             {
@@ -180,27 +183,7 @@ namespace Kanjoos
                 dbConn.Close();
         }
 
-
-        // Building an Application bar
-        private void BuildLocalizedApplicationBar()
-        {
-            // Set the page's ApplicationBar to a new instance of ApplicationBar.
-            ApplicationBar = new ApplicationBar();
-
-            // Create a new button and set the text value to the localized string from AppResources.
-            ApplicationBarIconButton addTransaction = new ApplicationBarIconButton(new Uri("/Assets/AppBar/appbar.add.rest.png", UriKind.Relative));
-            //appBarButton.Text = AppResources.AppBarButtonText;
-            addTransaction.Text = "add";
-            ApplicationBar.Buttons.Add(addTransaction);
-
-            // Create a new menu item with the localized string from AppResources.
-            //ApplicationBarMenuItem appBarMenuItem = new ApplicationBarMenuItem(AppResources.AppBarMenuItemText);
-            //ApplicationBar.MenuItems.Add(appBarMenuItem);
-        }
-
-
-        // temp function for adding transaction
-        private void add_trans_Click(object sender, RoutedEventArgs e)
+        private void apb_btn_addTrans_Click(object sender, EventArgs e)
         {
             // navigate to add transaction page
             Uri addTransPageURI = new Uri("/Transaction.xaml", UriKind.Relative);

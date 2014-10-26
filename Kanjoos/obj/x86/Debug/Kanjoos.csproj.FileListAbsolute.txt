@@ -21,7 +21,6 @@ E:\WP8 Apps\Kanjoos\Kanjoos\obj\x86\Debug\Kanjoos.csproj.GenerateResource.Cache
 E:\WP8 Apps\Kanjoos\Kanjoos\obj\x86\Debug\Kanjoos.dll
 E:\WP8 Apps\Kanjoos\Kanjoos\obj\x86\Debug\Kanjoos.pdb
 E:\WP8 Apps\Kanjoos\Kanjoos\obj\x86\Debug\XapCacheFile.xml
-E:\WP8 Apps\Kanjoos\Kanjoos\obj\x86\Debug\Kanjoos.csprojResolveAssemblyReference.cache
 E:\WP8 Apps\Kanjoos\Kanjoos\Bin\x86\Debug\Telerik.Windows.Controls.Chart.dll
 E:\WP8 Apps\Kanjoos\Kanjoos\Bin\x86\Debug\Telerik.Windows.Controls.DataVisualization.dll
 E:\WP8 Apps\Kanjoos\Kanjoos\Bin\x86\Debug\Telerik.Windows.Controls.Input.dll
@@ -54,3 +53,4 @@ E:\WP8 Apps\Kanjoos\Kanjoos\Bin\x86\Debug\ko\System.Windows.Interactivity.resour
 E:\WP8 Apps\Kanjoos\Kanjoos\Bin\x86\Debug\ru\System.Windows.Interactivity.resources.dll
 E:\WP8 Apps\Kanjoos\Kanjoos\Bin\x86\Debug\zh-Hans\System.Windows.Interactivity.resources.dll
 E:\WP8 Apps\Kanjoos\Kanjoos\Bin\x86\Debug\zh-Hant\System.Windows.Interactivity.resources.dll
+E:\WP8 Apps\Kanjoos\Kanjoos\obj\x86\Debug\Kanjoos.csprojResolveAssemblyReference.cache
