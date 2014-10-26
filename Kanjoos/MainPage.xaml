@@ -102,21 +102,24 @@
             <phone:PivotItem Header="breakup">
                 <Grid>
                     <Grid.Resources>
-                        <SolidColorBrush x:Key="Brush0" Color="#5442D3"/>
-                        <SolidColorBrush x:Key="Brush1" Color="#00B8FF"/>
-                        <SolidColorBrush x:Key="Brush2" Color="#18F8C0"/>
-                        <SolidColorBrush x:Key="Brush3" Color="#13CC60"/>
-                        <SolidColorBrush x:Key="Brush4" Color="{StaticResource PhoneForegroundColor}"/>
-                        <SolidColorBrush x:Key="Brush5" Color="#FF5B00"/>
+                        <SolidColorBrush x:Key="Brush0" Color="CornflowerBlue"/>
+                        <SolidColorBrush x:Key="Brush1" Color="Teal"/>
+                        <SolidColorBrush x:Key="Brush2" Color="Orange"/>
+                        <SolidColorBrush x:Key="Brush3" Color="MidnightBlue"/>
+                        <SolidColorBrush x:Key="Brush4" Color="HotPink"/>
+                        <SolidColorBrush x:Key="Brush5" Color="Salmon"/>
+                        <SolidColorBrush x:Key="Brush6" Color="SaddleBrown"/>
+                        
 
                         <Style x:Key="BasePieStyle" TargetType="Path">
-                            <Setter Property="StrokeThickness" Value="2"/>
-                            <Setter Property="Stroke" Value="{StaticResource PhoneForegroundBrush}"/>
+                            <Setter Property="StrokeThickness" Value="4"/>
+                            <Setter Property="Stroke" Value="Azure"/>
                         </Style>
                     </Grid.Resources>
+                    
                     <Grid.RowDefinitions>
-                        <RowDefinition/>
-                        <RowDefinition/>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="*"/>
                     </Grid.RowDefinitions>
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition/>
@@ -125,9 +128,9 @@
                     
                     <Grid Grid.ColumnSpan="2">
                         <telerikChart:RadPieChart x:Name="pie_breakup">
-                            <telerikChart:PieSeries>
+                            <telerikChart:DoughnutSeries>
 
-                                <telerikChart:PieSeries.SliceStyles>
+                                <telerikChart:DoughnutSeries.SliceStyles>
                                     <Style BasedOn="{StaticResource BasePieStyle}"
                                TargetType="Path">
                                         <Setter Property="Fill" Value="{StaticResource Brush0}"/>
@@ -152,25 +155,47 @@
                                TargetType="Path">
                                         <Setter Property="Fill" Value="{StaticResource Brush5}"/>
                                     </Style>
-                                </telerikChart:PieSeries.SliceStyles>
+                                    <Style BasedOn="{StaticResource BasePieStyle}"
+                               TargetType="Path">
+                                        <Setter Property="Fill" Value="{StaticResource Brush6}"/>
+                                    </Style>
+                                </telerikChart:DoughnutSeries.SliceStyles>
 
-                                <telerikChart:PieSeries.AngleRange>
+                                <telerikChart:DoughnutSeries.AngleRange>
                                     <telerikCharting:AngleRange StartAngle="90" SweepAngle="360"/>
-                                </telerikChart:PieSeries.AngleRange>
-
-                                <telerikChart:PieSeries.LabelTemplate>
-                                    <DataTemplate>
-                                        <TextBlock Text="{Binding Percent}"
-                                                   FontSize="20"
-                                                   Foreground="{StaticResource PhoneBackgroundBrush}"
-                                                   FontWeight="Bold"/>
-                                    </DataTemplate>
-                                </telerikChart:PieSeries.LabelTemplate>
+                                </telerikChart:DoughnutSeries.AngleRange>
+                                
+                                
+                                <!-- BEGIN: SAMPLE DATA FOR TESTING PIE CHART -->
                                 <telerikCharting:PieDataPoint Value="50"/>
-                                <telerikCharting:PieDataPoint Value="20"/>
-                                <telerikCharting:PieDataPoint Value="30"/>
-                            </telerikChart:PieSeries>
+                                <telerikCharting:PieDataPoint Value="10"/>
+                                <telerikCharting:PieDataPoint Value="10"/>
+                                <telerikCharting:PieDataPoint Value="10"/>
+                                <telerikCharting:PieDataPoint Value="10"/>
+                                <telerikCharting:PieDataPoint Value="10"/>
+                                <telerikCharting:PieDataPoint Value="10"/>
+                                <!-- END: SAMPLE DATA FOR TESTING PIE CHART -->
+                            </telerikChart:DoughnutSeries>
                         </telerikChart:RadPieChart>
+                    </Grid>
+                    
+                    <Grid Grid.Row="2" Grid.ColumnSpan="2">
+                        <phone:LongListSelector x:Name="lls_breakup">
+                            <phone:LongListSelector.ItemTemplate>
+                                <DataTemplate>
+                                    <StackPanel>
+                                        <Ellipse Width="30"
+                                                 Height="30"
+                                                 Fill="{Binding color}"/>
+                                        
+                                        <TextBlock Text="{Binding category}" 
+                                               TextWrapping="NoWrap" />
+                                        <TextBlock Text="{Binding amount}" 
+                                               TextWrapping="NoWrap" />
+                                    </StackPanel>
+                                </DataTemplate>
+                            </phone:LongListSelector.ItemTemplate>
+                        </phone:LongListSelector>
                     </Grid>
                 </Grid>
             </phone:PivotItem>

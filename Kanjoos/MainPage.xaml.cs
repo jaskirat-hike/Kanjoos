@@ -100,14 +100,17 @@ namespace Kanjoos
             var sortedDict = from entry in cat_expenses orderby entry.Value descending select entry;
 
             List<CatExpenses> percent_expenses = new List<CatExpenses>();
+            int item_index = 0;
 
             foreach (var rec in sortedDict)
             {
                 CatExpenses new_item = new CatExpenses();
                 new_item.category = rec.Key;
                 new_item.amount = rec.Value;
-                new_item.percent = Convert.ToInt32(((rec.Value / total_expenditure) * 100));
+                new_item.color = CatExpenses.GetColor(item_index); 
+                new_item.percent = (float)((rec.Value / total_expenditure) * 100);
                 percent_expenses.Add(new_item);
+                item_index += 1;
             }
 
             lls_top_expenses.ItemsSource = percent_expenses;
@@ -155,14 +158,19 @@ namespace Kanjoos
         {
             int item_count = records.Count;
             int item = 0;
-            int[] breakup_percentages = new int[item_count];
+            float[] breakup_percentages = new float[item_count];
 
             foreach (var rec in records)
             {
                 breakup_percentages[item] = rec.percent;
                 item += 1;
             }
+
             pie_breakup.Series[0].ItemsSource = breakup_percentages;
+
+            lls_breakup.ItemsSource = records;
+            //pie_breakup.Series[0].ItemsSource = records;
+
         }
 
         protected override void OnNavigatedFrom(NavigationEventArgs e)
