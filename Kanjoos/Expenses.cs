@@ -30,12 +30,23 @@ namespace Kanjoos
         public static string GetRandomColor()
         {
             List<string> colors = new List<string>();
-            colors.Add("Blue");
-            colors.Add("BlueViolet");
-            colors.Add("Brown");
             colors.Add("CadetBlue");
+            colors.Add("Chocolate");
+            colors.Add("LightYellow");
+            colors.Add("HotPink");
+            colors.Add("Khaki");
+            colors.Add("Lavender");
+            colors.Add("LightBlue");
+            colors.Add("MistyRose");
+            colors.Add("PowderBlue");
+            colors.Add("OldLace");
+            colors.Add("LemonChiffon");
+            colors.Add("Tan");
+            colors.Add("Thistle");
+            colors.Add("Wheat");
             colors.Add("Coral");
             colors.Add("Crimson");
+
 
             int color_count = colors.Count;
             
