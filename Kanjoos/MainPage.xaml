@@ -6,6 +6,8 @@
     xmlns:shell="clr-namespace:Microsoft.Phone.Shell;assembly=Microsoft.Phone"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:telerikChart="clr-namespace:Telerik.Windows.Controls;assembly=Telerik.Windows.Controls.Chart"
+    xmlns:telerikCharting="clr-namespace:Telerik.Charting;assembly=Telerik.Windows.Controls.Chart"
     mc:Ignorable="d"
     FontFamily="{StaticResource PhoneFontFamilyNormal}"
     FontSize="{StaticResource PhoneFontSizeNormal}"
@@ -93,6 +95,84 @@
                             </DataTemplate>
                     </phone:LongListSelector.ItemTemplate>
                 </phone:LongListSelector>
+            </phone:PivotItem>
+
+
+            <!--Pivot item three-->
+            <phone:PivotItem Header="breakup">
+                <Grid>
+                    <Grid.Resources>
+                        <SolidColorBrush x:Key="Brush0" Color="#5442D3"/>
+                        <SolidColorBrush x:Key="Brush1" Color="#00B8FF"/>
+                        <SolidColorBrush x:Key="Brush2" Color="#18F8C0"/>
+                        <SolidColorBrush x:Key="Brush3" Color="#13CC60"/>
+                        <SolidColorBrush x:Key="Brush4" Color="{StaticResource PhoneForegroundColor}"/>
+                        <SolidColorBrush x:Key="Brush5" Color="#FF5B00"/>
+
+                        <Style x:Key="BasePieStyle" TargetType="Path">
+                            <Setter Property="StrokeThickness" Value="2"/>
+                            <Setter Property="Stroke" Value="{StaticResource PhoneForegroundBrush}"/>
+                        </Style>
+                    </Grid.Resources>
+                    <Grid.RowDefinitions>
+                        <RowDefinition/>
+                        <RowDefinition/>
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition/>
+                        <ColumnDefinition/>
+                    </Grid.ColumnDefinitions>
+                    
+                    <Grid Grid.ColumnSpan="2">
+                        <telerikChart:RadPieChart x:Name="pie_breakup">
+                            <telerikChart:PieSeries>
+
+                                <telerikChart:PieSeries.SliceStyles>
+                                    <Style BasedOn="{StaticResource BasePieStyle}"
+                               TargetType="Path">
+                                        <Setter Property="Fill" Value="{StaticResource Brush0}"/>
+                                    </Style>
+                                    <Style BasedOn="{StaticResource BasePieStyle}"
+                               TargetType="Path">
+                                        <Setter Property="Fill" Value="{StaticResource Brush1}"/>
+                                    </Style>
+                                    <Style BasedOn="{StaticResource BasePieStyle}"
+                               TargetType="Path">
+                                        <Setter Property="Fill" Value="{StaticResource Brush2}"/>
+                                    </Style>
+                                    <Style BasedOn="{StaticResource BasePieStyle}"
+                               TargetType="Path">
+                                        <Setter Property="Fill" Value="{StaticResource Brush3}"/>
+                                    </Style>
+                                    <Style BasedOn="{StaticResource BasePieStyle}"
+                               TargetType="Path">
+                                        <Setter Property="Fill" Value="{StaticResource Brush4}"/>
+                                    </Style>
+                                    <Style BasedOn="{StaticResource BasePieStyle}"
+                               TargetType="Path">
+                                        <Setter Property="Fill" Value="{StaticResource Brush5}"/>
+                                    </Style>
+                                </telerikChart:PieSeries.SliceStyles>
+
+                                <telerikChart:PieSeries.AngleRange>
+                                    <telerikCharting:AngleRange StartAngle="90" SweepAngle="360"/>
+                                </telerikChart:PieSeries.AngleRange>
+
+                                <telerikChart:PieSeries.LabelTemplate>
+                                    <DataTemplate>
+                                        <TextBlock Text="{Binding Percent}"
+                                                   FontSize="20"
+                                                   Foreground="{StaticResource PhoneBackgroundBrush}"
+                                                   FontWeight="Bold"/>
+                                    </DataTemplate>
+                                </telerikChart:PieSeries.LabelTemplate>
+                                <telerikCharting:PieDataPoint Value="50"/>
+                                <telerikCharting:PieDataPoint Value="20"/>
+                                <telerikCharting:PieDataPoint Value="30"/>
+                            </telerikChart:PieSeries>
+                        </telerikChart:RadPieChart>
+                    </Grid>
+                </Grid>
             </phone:PivotItem>
         </phone:Pivot>
 

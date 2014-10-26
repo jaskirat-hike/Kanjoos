@@ -54,14 +54,6 @@ namespace Kanjoos
             // construct various pages
             make_overview(records, current_month);
             make_expenditures(records);
-            //make_breakup(records);
-
-            //List<Expenses> expenses = dbConn.Table<Expenses>().ToList<Expenses>();
-
-            //expenditures.Items.Clear();
-            //foreach (Expenses ex in expenses)
-            //{
-            //}
         }
 
         private List<Expenses> RetrieveCurrentRecords(int month)
@@ -119,6 +111,10 @@ namespace Kanjoos
             }
 
             lls_top_expenses.ItemsSource = percent_expenses;
+            
+            // make pie chart from percent expenses
+            make_breakup(percent_expenses);
+
             tb_expenditure.Text = "Expenditure (" + month.ToUpper() + "): " + total_expenditure.ToString();
 
         }
@@ -155,9 +151,18 @@ namespace Kanjoos
         }
         
         // construct and update the breakup
-        private void make_breakup(List<Expenses> records)
+        private void make_breakup(List<CatExpenses> records)
         {
-            throw new NotImplementedException();
+            int item_count = records.Count;
+            int item = 0;
+            int[] breakup_percentages = new int[item_count];
+
+            foreach (var rec in records)
+            {
+                breakup_percentages[item] = rec.percent;
+                item += 1;
+            }
+            pie_breakup.Series[0].ItemsSource = breakup_percentages;
         }
 
         protected override void OnNavigatedFrom(NavigationEventArgs e)
